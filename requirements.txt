@@ -1,0 +1,10 @@
+Django>=5.0,<5.1
+python-decouple
+pytz
+psycopg
+sqlparse
+typing_extensions
+djangorestframework
+markdown
+pyyaml
+django-environ

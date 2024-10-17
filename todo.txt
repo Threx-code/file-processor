@@ -1,0 +1,25 @@
+- create virtual environment
+- install django and all other packages
+- create project
+
+
+
+1. Implement an endpoint to accept two CSV files (source and target) for
+reconciliation.
+2. Implement data normalization logic to handle potential data transformation
+issues (e.g., date formats, case sensitivity, leading/trailing spaces).
+3. Implement reconciliation logic:
+4. Identify records present in source but missing in target and vice versa.
+5. Compare records that exist in both files to identify discrepancies in specific
+fields.
+
+6. Implement an endpoint to return the reconciliation report in a desired format
+(CSV, HTML, or JSON).
+
+Reconciliation Results Display:
+After successful upload and processing, display the results:
+1. Records missing in the target.
+2. Records missing in the source.
+3. Records with discrepancies, highlighting the fields that differ.
+4. Error Handling:
+5. Display error messages if the file upload fails or if there are validation errors.

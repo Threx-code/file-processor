@@ -20,10 +20,16 @@ logs:
 start_app:
 	docker exec -it app /bin/sh
 
+makeapp:
+	docker exec -it app python manage.py startapp $(app_name)
+
+
+startproject:
+	docker exec -it app django-admin startproject $(project_name) .
+
 makemigration:
 	docker exec -it app python manage.py makemigrations
 
 migrate:
 	docker exec -it app python manage.py migrate
-
 

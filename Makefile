@@ -33,3 +33,8 @@ makemigration:
 migrate:
 	docker exec -it app python manage.py migrate
 
+secret_key:
+	docker exec -it app python manage.py shell -c "from django.core.management import utils; print(utils.get_random_secret_key())"
+
+rand_key:
+	openssl rand -base64 $(key_length)

@@ -1,0 +1,11 @@
+SOURCE_FILE = 'source_file'
+SOURCE_HASH = 'source_hash'
+TARGET_FILE = 'target_file'
+TARGET_HASH = 'target_hash'
+COMBINED_HASH = 'combined_hash'
+INPUT_TYPE = 'input_type'
+REQUEST = 'request'
+REQUIRED = 'required'
+EMPTY_STRING = ''
+FILE_RECONCILIATION_EXIST = 'You have already performed reconciliation for these files.'
+

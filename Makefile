@@ -24,7 +24,7 @@ logs:
 	docker-compose logs -f
 
 start_app:
-	docker exec -it app /bin/sh
+	docker exec -it recon_app /bin/sh
 
 rand_key:
 	openssl rand -base64 $(key_length)

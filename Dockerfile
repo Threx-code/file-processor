@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     #for cairoSVG
     libcairo2 \
     gcc \
+    make \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /src

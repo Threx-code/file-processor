@@ -5,7 +5,7 @@ startapp:
 		python manage.py startapp $(name); \
 	fi
 
-migration:
+migrations:
 	python manage.py makemigrations
 
 migrate:

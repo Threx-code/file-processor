@@ -1,9 +1,8 @@
-from importlib.util import source_hash
-
 from rest_framework import serializers
-from reconciliation_file.models import ReconciliationFile
-from reconciliation_file.helpers import fields as input_fields
-from reconciliation_file.helpers.file_hash import FileHash
+from ..models import ReconciliationFile
+from ..helpers import fields as input_fields
+from ..helpers.file_hash import FileHash
+from ..repositories.reconciliation import ReconciliationFileRepository
 
 class ReconciliationFileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,7 +14,7 @@ class ReconciliationFileSerializer(serializers.ModelSerializer):
         targethash = FileHash(attrs.get(input_fields.TARGET_FILE)).generate_file_hash()
 
         combined_hash = f"{sourcehash}:{targethash}"
-        if ReconciliationFile.objects.filter(file_hash=combined_hash).exists():
+        if ReconciliationFileRepository().it_exist(combined_hash):
             raise serializers.ValidationError(input_fields.FILE_RECONCILIATION_EXIST)
 
         attrs[input_fields.COMBINED_HASH] = combined_hash

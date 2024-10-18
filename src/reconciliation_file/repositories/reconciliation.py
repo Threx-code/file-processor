@@ -1,4 +1,4 @@
-from reconciliation_file.models import ReconciliationFile
+from ..models import ReconciliationFile
 
 class ReconciliationFileRepository:
 
@@ -11,3 +11,6 @@ class ReconciliationFileRepository:
 
     def get(self, req_hash: str):
         return ReconciliationFile.objects.get(file_hash=req_hash)
+
+    def it_exist(self, combined_hash):
+        return ReconciliationFile.objects.filter(file_hash=combined_hash).exists()

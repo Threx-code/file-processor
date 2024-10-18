@@ -14,12 +14,9 @@ class ReconciliationFileSerializer(serializers.ModelSerializer):
         sourcehash = FileHash(attrs.get(input_fields.SOURCE_FILE)).generate_file_hash()
         targethash = FileHash(attrs.get(input_fields.TARGET_FILE)).generate_file_hash()
 
-
         combined_hash = f"{sourcehash}:{targethash}"
         if ReconciliationFile.objects.filter(file_hash=combined_hash).exists():
             raise serializers.ValidationError(input_fields.FILE_RECONCILIATION_EXIST)
 
-        attrs[input_fields.SOURCE_HASH] = sourcehash
-        attrs[input_fields.TARGET_HASH] = targethash
         attrs[input_fields.COMBINED_HASH] = combined_hash
         return attrs

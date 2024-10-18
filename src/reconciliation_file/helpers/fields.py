@@ -11,4 +11,5 @@ FILE_RECONCILIATION_EXIST = 'You have already performed reconciliation for these
 MESSAGE = 'message'
 DATA = 'data'
 HASH = 'hash'
+ID = 'id'
 FILE_UPLOADED_SUCCESSFULLY = 'Files uploaded successfully.'

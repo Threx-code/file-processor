@@ -18,16 +18,16 @@ services:
       - .env
     command: python /src/manage.py runserver 0.0.0.0:8000
     depends_on:
-      - db
+      - postgres
     networks:
         - api
 
-  db:
+  postgres:
     image: postgres:16.4-alpine
-    container_name: ${APP_NAME}_db
+    container_name: ${DB_HOST}_db
     restart: unless-stopped
     ports:
-      - "5434:5432"
+      - "5433:5432"
     volumes:
       - ./postgres:/var/lib/postgresql/data
     environment:

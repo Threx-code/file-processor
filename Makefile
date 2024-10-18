@@ -26,8 +26,5 @@ logs:
 start_app:
 	docker exec -it app /bin/sh
 
-secret_key:
-	python manage.py shell -c "from django.core.management import utils; print(utils.get_random_secret_key())"
-
 rand_key:
 	openssl rand -base64 $(key_length)

@@ -6,6 +6,7 @@ from . import views
 app_name = 'recon'
 
 urlpatterns =[
-    path("", views.ReconciliationFileUploadApi.as_view(), name="upload"),
-    path("upload/", views.ReconciliationFileUploadApi.as_view(), name="upload"),
+    path("", views.ReconciliationFileUploadAPI.as_view(), name="upload"),
+    path("upload/", views.ReconciliationFileUploadAPI.as_view(), name="upload"),
+    path("report/<str:hash>/", views.ReconciliationFileReportAPI.as_view(), name="report"),
 ]

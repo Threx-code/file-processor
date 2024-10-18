@@ -9,3 +9,6 @@ class ReconciliationFileUploadService:
             target_file=target_file,
             combined_hash=combined_hash
         )
+
+    def get_reconciliation_file(self, req_hash: str):
+        return self.repository.get(req_hash)

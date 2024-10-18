@@ -2,6 +2,7 @@
 .idea
 db.sqlite3
 /src/db.sqlite3
+/src/media/
 postgres/
 
 # created by virtualenv automatically

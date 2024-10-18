@@ -8,4 +8,7 @@ REQUEST = 'request'
 REQUIRED = 'required'
 EMPTY_STRING = ''
 FILE_RECONCILIATION_EXIST = 'You have already performed reconciliation for these files.'
-
+MESSAGE = 'message'
+DATA = 'data'
+HASH = 'hash'
+FILE_UPLOADED_SUCCESSFULLY = 'Files uploaded successfully.'

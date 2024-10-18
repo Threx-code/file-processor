@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ReconcilationFileConfig(AppConfig):
+class ReconciliationFileConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "reconcilation_file"
+    name = "reconciliation_file"

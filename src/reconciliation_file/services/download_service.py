@@ -1,3 +1,5 @@
+from django.template.loader import render_to_string
+
 from ..helpers import fields as input_fields
 from ..helpers.nomalize import Normalizer
 from django.http import HttpResponse
@@ -95,3 +97,22 @@ class ReconciliationFileDownloadService:
                 item_type.capitalize()
             ])
 
+    def download_html(self, reconciliation_result):
+
+        html_content = render_to_string('reconciliation_file/report.html', reconciliation_result)
+
+        response = HttpResponse(html_content, content_type=input_fields.HTML_TYPE)
+        response[input_fields.CONTENT_DISPOSITION] = input_fields.FILE_HTML_NAME
+        # response.write('<html><body>')
+        #
+        # response.write('<h2>Missing in Target</h2>')
+        # self.html_format(reconciliation_result, input_fields.MISSING_IN_TARGET, response)
+        #
+        # response.write('<h2>Missing in Source</h2>')
+        # self.html_format(reconciliation_result, input_fields.MISSING_IN_SOURCE, response)
+        #
+        # response.write('<h2>Discrepancies</h2>')
+        # self.html_discrepancy_format(reconciliation_result, response)
+        #
+        # response.write('</body></html>')
+        return response

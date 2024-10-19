@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reconciliation Report</title>
+</head>
+<body>
+    <h1>Reconciliation Report</h1>
+
+    <h2>Missing in Target</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+        {% for item in missing_in_target %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.amount }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No records missing in target</td></tr>
+        {% endfor %}
+    </table>
+
+    <h2>Missing in Source</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+        {% for item in missing_in_source %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.amount }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No records missing in source</td></tr>
+        {% endfor %}
+    </table>
+
+    <h2>Discrepancies</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Field</th>
+            <th>Source</th>
+            <th>Target</th>
+        </tr>
+        {% for discrepancy in discrepancies %}
+            {% for field, values in discrepancy.difference.items %}
+            <tr>
+                <td>{{ discrepancy.id }}</td>
+                <td>{{ field }}</td>
+                <td>{{ values.source }}</td>
+                <td>{{ values.target }}</td>
+            </tr>
+            {% endfor %}
+        {% empty %}
+        <tr><td colspan="4">No discrepancies found</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -5,16 +5,16 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
 from .serializers.upload import ReconciliationFileSerializer
 from .helpers import fields as input_fields
-from .bases.base_reconcile import ReconciliationBase
+from .services.upload_service import ReconciliationFileUploadService
+from .services.download_service import ReconciliationFileDownloadService
+from .repositories.reconciliation import ReconciliationFileRepository
 
-
-
-class ReconciliationFileUploadAPI(CreateAPIView, ReconciliationBase):
+class ReconciliationFileUploadAPI(CreateAPIView):
     serializer_class = ReconciliationFileSerializer
     parser_classes = (MultiPartParser, FormParser, JSONParser, FileUploadParser)
 
     def __init__(self, *args, **kwargs):
-        ReconciliationBase.__init__(self)
+        self.service = ReconciliationFileUploadService(repository=ReconciliationFileRepository())
         super().__init__(*args, **kwargs)
 
     def create(self, request, *args, **kwargs):
@@ -39,12 +39,10 @@ class ReconciliationFileUploadAPI(CreateAPIView, ReconciliationBase):
         }, status=status.HTTP_201_CREATED)
 
 
-
-
-class ReconciliationFileReportAPI(APIView, ReconciliationBase):
+class ReconciliationFileReportAPI(APIView):
 
     def __init__(self, *args, **kwargs):
-        ReconciliationBase.__init__(self)
+        self.service = ReconciliationFileDownloadService(repository=ReconciliationFileRepository())
         super().__init__(*args, **kwargs)
 
     def get(self, request, req_hash, file_format=None):
@@ -61,6 +59,8 @@ class ReconciliationFileReportAPI(APIView, ReconciliationBase):
 
         if file_format == input_fields.CSV:
             return self.service.download_csv(reconciliation_result)
+        if file_format == input_fields.HTML:
+            return self.service.download_html(reconciliation_result)
 
         return Response(data=reconciliation_result, status=status.HTTP_200_OK)
 

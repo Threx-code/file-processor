@@ -1,6 +1,7 @@
 from django.db import models
 
 class ReconciliationFile(models.Model):
+    DoesNotExist = None
     source_file = models.FileField(upload_to='reconciliation_files/')
     target_file = models.FileField(upload_to='reconciliation_files/')
     file_hash = models.CharField(max_length=255, unique=True)

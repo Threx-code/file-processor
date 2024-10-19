@@ -10,7 +10,10 @@ class ReconciliationFileRepository:
         )
 
     def get(self, req_hash: str):
-        return ReconciliationFile.objects.get(file_hash=req_hash)
+        try:
+            return ReconciliationFile.objects.get(file_hash=req_hash)
+        except ReconciliationFile.DoesNotExist:
+            return None
 
     def it_exist(self, combined_hash):
         return ReconciliationFile.objects.filter(file_hash=combined_hash).exists()

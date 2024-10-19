@@ -17,7 +17,6 @@ class ReconciliationFileUploadAPI(CreateAPIView, ReconciliationBase):
         ReconciliationBase.__init__(self)
         super().__init__(*args, **kwargs)
 
-
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -47,7 +46,6 @@ class ReconciliationFileReportAPI(APIView, ReconciliationBase):
     def __init__(self, *args, **kwargs):
         ReconciliationBase.__init__(self)
         super().__init__(*args, **kwargs)
-
 
     def get(self, request, req_hash, file_format=None):
         recon_file = self.service.get_reconciliation_file(req_hash)

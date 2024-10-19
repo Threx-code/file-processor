@@ -7,7 +7,6 @@ class ReconciliationFileUploadService:
     def __init__(self, repository):
         self.repository = repository
 
-
     def upload_reconciliation_file(self, source_file, target_file, combined_hash):
         return self.repository.create(
             source_file=source_file,
@@ -15,13 +14,11 @@ class ReconciliationFileUploadService:
             combined_hash=combined_hash
         )
 
-
     def get_reconciliation_file(self, req_hash: str):
         return self.repository.get(req_hash)
 
     def it_exist(self, combined_hash):
         return self.repository.it_exist(combined_hash)
-
 
     def perform_reconciliation(self, recon_file):
         source_file = Normalizer().nomalize(recon_file.source_file)

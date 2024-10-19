@@ -25,11 +25,9 @@ DISCREPANCIES = 'discrepancies'
 MISSING_IN_TARGET = 'missing_in_target'
 MISSING_IN_SOURCE = 'missing_in_source'
 CONTENT_DISPOSITION = 'Content-Disposition'
+HTML_TEMPLATE = 'reconciliation_file/report.html'
 FILE_HTML_NAME = 'attachment; filename="report.html"'
 FILE_ATTACHMENT_NAME = 'attachment; filename="report.csv"'
 FILE_UPLOADED_SUCCESSFULLY = 'Files uploaded successfully.'
 FILE_RECONCILIATION_EXIST = 'You have already performed reconciliation for these files.'
 FILE_RECONCILIATION_NOT_EXIST = 'This reconciliation with this hash does not exist.'
-
-
-

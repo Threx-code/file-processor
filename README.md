@@ -31,7 +31,7 @@ After successful upload and processing, display the results:
 
 IF you have Docker follow the setup below, or clone the repository and run it the best way you could locally
 
-### Installation RUN the commands below in the terminal (Docker is required)
+#### Installation RUN the commands below in the terminal (Docker is required)
 - cd ~/path/to/the/directory/where/you/download/the/project
 - cp .env.example .env
 - Add the database configuration to the .env file
@@ -42,7 +42,7 @@ IF you have Docker follow the setup below, or clone the repository and run it th
 - Create the migrations (python manage.py makemigrations)
 - Run the migrations (python manage.py migrate)
 
-### If you know how to use Makefile, check the Makefile and run the commands for easy setup
+#### If you know how to use Makefile, check the Makefile and run the commands for easy setup
 - make install_all
 - make appinstall package_name
 - make build
@@ -53,12 +53,12 @@ IF you have Docker follow the setup below, or clone the repository and run it th
 - make start_app
 - make rand_key (Run this to generate random key for the Django secret key)
 
-### HOW to use the application
+#### HOW to use the application
 - To access the application base url .........http://localhost:8001/
 
-### UPLOAD FILE ENDPOINTS
+#### UPLOAD FILE ENDPOINTS
 - POST upload file .........http://localhost:8001/api/reconcile/upload/
 
-### FILE REPORT ENDPOINTS
+#### FILE REPORT ENDPOINTS
 - GET upload file .........http://localhost:8001/api/reconcile/report/{hash_key}/
 - GET upload file .........http://localhost:8001/api/reconcile/report/{hash_key}/{format}/

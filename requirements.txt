@@ -8,3 +8,5 @@ djangorestframework
 markdown
 pyyaml
 django-environ
+django-storages
+boto3

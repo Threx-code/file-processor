@@ -1,5 +1,8 @@
+from ..repositories.reconciliation import ReconciliationFileRepository
+
+
 class ReconciliationFileUploadService:
-    def __init__(self, repository):
+    def __init__(self, repository: ReconciliationFileRepository):
         self.repository = repository
 
     def upload_reconciliation_file(self, source_file, target_file, combined_hash):

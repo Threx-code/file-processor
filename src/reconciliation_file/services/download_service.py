@@ -5,8 +5,11 @@ from ..helpers.nomalize import Normalizer
 from django.http import HttpResponse
 import csv
 
+from ..repositories.reconciliation import ReconciliationFileRepository
+
+
 class ReconciliationFileDownloadService:
-    def __init__(self, repository):
+    def __init__(self, repository: ReconciliationFileRepository):
         self.repository = repository
 
     def get_reconciliation_file(self, req_hash: str):
